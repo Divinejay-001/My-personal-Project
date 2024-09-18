@@ -1,0 +1,78 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-image: url('/Graphics/pexels-pixabay-164634.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+.title{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: auto;
+    color:red;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+.motto{
+    color:white;
+    font-size: 19px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+
+#search{
+    justify-content:center;
+    align-items: center;
+    display: flex;
+    margin: auto;
+    margin-block: 20px;
+    padding: 5px 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.image{
+    /* border-radius: 25%; */
+    background-color: red;
+    margin-right: 500px;
+}
+.search-container {
+    position: relative;
+    display: inline-block;
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* display: flex; */
+    /* text-align: center; */
+    /* display: inline; */
+    /* margin-left: 500px; */
+    /* margin-block: 20px; */
+  }
+  
+  .search-input {
+    padding-right: 40px; /* make space for the button */
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 10px;
+    width: 300px; /* adjust width */
+     margin-left: 500px;
+    margin-block: 20px;
+  }
+  
+  .search-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+     /* margin-left: 500px; */
+    /* margin-block: 20px; */
+  }
+  
+  .search-button:hover {
+    color: #007bff; /* adjust hover color */
+  }
