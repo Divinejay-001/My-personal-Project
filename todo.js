@@ -2,13 +2,14 @@
 const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
-const filterOptions = document.querySelector('.todo-filter');
+const filterOptions = document.querySelector('.filter-todo');
+
 
 // Event listeners
 document.addEventListener("DOMContentLoaded", getTodos);
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteCheck);
-filterOptions.addEventListener("change", filterTodo); // Changed from "click" to "change"
+// filterOptions.addEventListener("", filterTodo); // Changed from "click" to "change"
 
 // Function to add a new todo item
 function addTodo(event) {
@@ -53,13 +54,14 @@ function addTodo(event) {
 // Function to delete or check off a todo item
 function deleteCheck(e) {
     const item = e.target;
+    // item.remove();
 
     // Delete Todo
     if (item.classList.contains('trash-btn')) {
         const todo = item.parentElement;
         todo.classList.add('fall');
         todo.addEventListener('transitionend', function () {
-            removeLocalTodos(todo);
+        //    localStorage.removeItem(Todo);
             todo.remove();
         });
     }
@@ -69,11 +71,15 @@ function deleteCheck(e) {
         const todo = item.parentElement;
         todo.classList.toggle('completed');
     }
-    // Check Todo
+    // edit Todo
     if (item.classList.contains('edit-btn')) {
         const todo = item.parentElement;
-        todo.classList.toggle('editeed');
-    }
+        todo.classList.add('');
+        todo.addEventListener('click', function () {
+            localStorage.removeItem(todo);
+            //  todo.add('todo-item');
+          })
+}
 }
 
 // Function to filter todos
@@ -144,7 +150,10 @@ function getTodos() {
         trashButton.innerHTML = '<i class="fas fa-trash"></i>';
         trashButton.classList.add('trash-btn');
         todoDiv.appendChild(trashButton);
-
+        const editButton = document.createElement('button');
+        editButton.innerHTML = '<i class="fas fa-edit"></i>';
+        editButton.classList.add('edit-btn');
+        todoDiv.appendChild(editButton);
         // Append to List
         todoList.appendChild(todoDiv);
     });
@@ -163,3 +172,4 @@ function removeLocalTodos(todoText) {
     localStorage.setItem('todos', JSON.stringify(todos));
   }
 }
+//

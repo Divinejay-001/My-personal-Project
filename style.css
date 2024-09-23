@@ -1,7 +1,7 @@
 body{
     padding: 0;
     margin: 0;
-    background-image: url('/Graphics/pexels-pixabay-164634.jpg');
+    background-image: url('/Graphics/pexels-pixabay-164634.jpg'),url('/carIndustryimages/pexels-abdul-rahman-2669315-5046305.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -17,8 +17,8 @@ body{
     font-size: 25px;
 }
 .motto{
-    color:white;
-    font-size: 19px;
+    color:red;
+    font-size: 22px;
     font-weight: bold;
     font-style: italic;
 }
@@ -38,6 +38,10 @@ body{
     /* border-radius: 25%; */
     background-color: red;
     margin-right: 500px;
+    transition: transform 0.1 ease;
+}
+.image:hover{
+  transform: scale(1.5)
 }
 .search-container {
     position: relative;
@@ -76,3 +80,51 @@ body{
   .search-button:hover {
     color: #007bff; /* adjust hover color */
   }
+  /* \
+*/
+p{
+  color: orangered;
+  display: flex;
+  font-size: 20px;
+/* padding: 30px 20px; */
+/* justify-content:flex-end; */
+  /* align-items: flex-start; */
+}
+#inform{
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  /* background-color: #f0f0f0; */
+  padding: 10px; /* Optional */
+  gap: 30px;
+  cursor: pointer;
+}
+.p:hover{
+  transform: translateY(-5px);
+  transition: .3s;
+  color: gold;
+}
+
+ .fa-star{
+color: white;
+font-weight: bolder;
+}
+.fa-star:hover{
+  transform: translateY(-5px);
+  transition: .3s;
+  /* color: gold; */
+}
+.fa-star.active{
+  color: gold;
+}
+/* button{
+  background-color: transparent;
+  border-radius: 500%;
+}
+button::after{
+  color: gold;
+} */

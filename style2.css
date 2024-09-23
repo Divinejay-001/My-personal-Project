@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{
-    background-image: linear-gradient(120deg, #f6d365, #fda085);
+    background-image: linear-gradient(120deg, #658cf6, #fd8585);
 color: white;
 font-family: "Poppins", sans-serif;
 min-height: 100vh;
@@ -57,7 +57,7 @@ form button:hover{
     background-color: rgb(196, 216, 255);
 }
 .todo:hover{
-    background-color: aqua;
+    background-color:#f6d365;
 }
 .todo li{
     flex: 1;
@@ -72,6 +72,9 @@ form button:hover{
 }
 .complete-btn{
     background: rgb(61, 145, 61);
+}
+.edit-btn{
+    background: rgb(255, 170, 0);
 }
 .todo-item{
     padding: 0rem 0.5rem;

@@ -213,49 +213,76 @@ const availableCars =[
 }
     ]
 // const searchButton = document.getElementById('searchButton')
-const searchInput = document.getElementById("search-input");
-const carResult = document.getElementById("car-result");
+// const searchInput = document.getElementById("search-input");
+// const carResults = document.getElementById("car-result");
+// const searchButton=document.getElementById('search-btn');
 
-document.addEventListener("DOMContentLoaded", () => {
-  searchInput.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-      const searchTerm = searchInput.value.toLowerCase();
-      const matchingCar = availableCars.find(car => car.name.toLowerCase().includes(searchTerm));
+// searchButton.addEventListener("click", searchCar)
 
-      if (matchingCar) {
-        carResult.innerHTML = `
-          <h2>${matchingCar.name}</h2>
-          <img src="${matchingCar.image}" alt="${matchingCar.name}">
-          <ul>
-            //  <li>year: ${matchingCar.properties.year}</li>
-            <li>Price: ${matchingCar.properties.price}</li>
-            <li>Horsepower: ${matchingCar.properties.horsepower}</li>
-            <li>Max Speed: ${matchingCar.properties.maxSpeed}</li>
-          </ul>
-        `;
-        // Change the background image or color here...
-        document.body.style.backgroundImage = `url(${matchingCar.image})`;
-      } else {
-        carResult.innerHTML = "No matching car found.";
-        document.body.style.backgroundImage = ""; // Reset background image
-      }
-    }
-  });
-});
-// if (matchingCar) {
-//     carResult.innerHTML = `
-//       <h2>${matchingCar.name}</h2>
-//       <img src="${matchingCar.image}" alt="${matchingCar.name}">
-//       <ul>
-//         <li>Year: ${matchingCar.properties.year}</li>
-//         <li>Price: ${matchingCar.properties.price}</li>
-//         <li>Horsepower: ${matchingCar.properties.horsepower}</li>
-//         <li>Max Speed: ${matchingCar.properties.maxSpeed}</li>
-//       </ul>
-//     `;
-//     // Change the background image or color here...
-//     document.body.style.backgroundImage = `url(${matchingCar.image})`;
-//   } else {
-//     carResult.innerHTML = "No matching car found.";
-//     document.body.style.backgroundImage = ""; // Reset background image
+// function searchCar(){
+//     const seachTerm = searchCarInput.value.toLowerCase();
+//     const matchedCars = availableCars.find(car => car.name.toLowerCase().includes(seachTerm));
+
+    
+// }// Function to search for cars
+// function searchCar() {
+//     const searchTerm = searchInput.value.toLowerCase();
+//     const matchedCar = availableCars.find(car => car.name.toLowerCase().includes(searchTerm));
+  
+//     if (matchedCar) {
+//       // Display car results
+//       carResults.innerHTML = `
+//         <h2>${matchedCar.name}</h2>
+//         <img src="${matchedCar.image}" alt="${matchedCar.name}">
+//         <p>Year: ${matchedCar.year}</p>
+//         <p>Price: $${matchedCar.price}</p>
+//         <p>Model: ${matchedCar.model}</p>
+//       `;
+//     } else {
+//       carResults.innerHTML = "<p>No matching car found.</p>";
+//     }
 //   }
+  
+  const searchInput = document.getElementById("search-input");
+const carDetails = document.getElementById("car-results");
+const starRate = document.getElementById("star-rate");
+
+searchInput.addEventListener("input", searchCar);
+
+starRate.addEventListener('click', (e)=>{
+if(e.target){
+    // starRate.style.color ='gold';
+    starRate.classList.toggle('active')
+}
+})
+function searchCar() {
+  const searchTerm = searchInput.value.trim().toLowerCase();
+  const matchingCar = Object.values(availableCars).find(car => car.model.toLowerCase().includes(searchTerm));
+
+  if (matchingCar) {
+    // Update background image
+    document.body.style.backgroundImage = `url(${matchingCar.image})`;
+
+    // Display car properties
+    carDetails.innerHTML = `
+      <h2>${matchingCar.model}</h2>
+      <p>Year: ${matchingCar.year}</p>
+      <p>${matchingCar.description}</p>
+    `;
+  } 
+  else if('e.keyCode === 13') {
+    carDetails.innerHTML = `
+    <h2>${matchingCar.model}</h2>
+    <p>Year: ${matchingCar.year}</p>
+    <p>${matchingCar.description}</p>
+  `;
+
+  }
+  else {
+    // Reset background image and car details
+    document.body.style.backgroundImage = "";
+    carDetails.innerHTML = "";
+  }
+}
+
+
